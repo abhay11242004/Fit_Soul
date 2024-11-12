@@ -1,6 +1,7 @@
 # Fit Soul
 <br>
 <p>Fit Soul is an app designed</p>
+<br>
 ### Team Composition
 <ul>
   <li>Abhay</li>
