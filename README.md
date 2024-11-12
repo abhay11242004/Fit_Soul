@@ -23,7 +23,7 @@
 ### Screens
 <ul>
   <li>WeightScreen: Shows the user their current weight they entered and allow the user to enter a weight goal.</li>
-  <li>ChatScreen: Shows the user the chatbox with their profile pictures and messages to the AI.</li>
+  <li>ChatScreen: Shows the user the chatbox with their profile picture and messages or questions to the AI.</li>
   <li>MotivationScreen: Shows the user the list of motivations with a search bar and filter.</li>
   <li>HeartScreen: Shows the user their current heart rate and which date they were taken.</li>
 </ul
