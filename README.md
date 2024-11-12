@@ -1,7 +1,7 @@
 # Fit Soul
 <br>
 <p>Fit Soul is an app designed to help any user of any age to motivate them of improving their overall health with fitness games.</p>
-<br>
+
 ### Team Composition
 <ul>
   <li>Abhay</li>
@@ -9,7 +9,7 @@
   <li>Sebastian</li>
   <li>Palak</li>
 </ul>
-<br>
+
 ### Scope
 <ul>
   <li>The user can easily view their current weight and set a goal for their weight.</li>
@@ -18,7 +18,7 @@
   <li>The user can search for a specific game or filter their games.</li>
   <li>The user can chat with other users.</li>
 </ul>
-<br>
+
 ### Screens
 <ul>
   <li>WeightScreen: Shows the user their current weight they entered and allow the user to enter a weight goal.</li>
@@ -26,7 +26,7 @@
   <li>GamesScreen: Shows the user the list of games with a search bar and filter.</li>
   <li>HeartScreen: Shows the user their current heart rate and which date.</li>
 </ul
-<br>
+
 Visuals: https://excalidraw.com/#json=X-fvRy1H3gSLKtFBzKiz9,PARUd85bSoYob7YUbVxsuQ
 Logo:
 ![image](https://github.com/user-attachments/assets/40b2fa0d-f914-4509-986b-aeff4da3d19c)
