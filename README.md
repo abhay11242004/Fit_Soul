@@ -23,7 +23,7 @@
 <ul>
   <li>WeightScreen: Shows the user their current weight they entered and allow the user to enter a weight goal.</li>
   <li>ChatScreen: Shows the user the chatbox with their profile pictures and messages.</li>
-  <li>GamesScreen: Shows the user the list of games with a search bar and filter.</li>
+  <li>MotivationScreen: Shows the user the list of motivations with a search bar and filter.</li>
   <li>HeartScreen: Shows the user their current heart rate and which date.</li>
 </ul
 
