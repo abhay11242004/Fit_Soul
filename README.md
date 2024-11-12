@@ -1,6 +1,6 @@
 # Fit Soul
 <br>
-<p>Fit Soul is an app designed to help any user of any age to motivate them of improving their overall health with fitness games.</p>
+<p>Fit Soul is an app designed to help any user of any age to motivate them of improving their overall health.</p>
 
 ### Team Composition
 <ul>
@@ -12,10 +12,10 @@
 
 ### Scope
 <ul>
-  <li>The user can easily view their current weight and set a goal for their weight.</li>
-  <li>The user can easily view their current heart rate.</li>
-  <li>The user has a list of different games.</li>
-  <li>The user can search for a specific game or filter their games.</li>
+  <li>The user can easily view their current weight and set a goal for their weight and will be stored in a database.</li>
+  <li>The user can easily view their current heart rate an previous heart rate and is stored in the database.</li>
+  <li>The user has a list of motivations.</li>
+  <li>The user can search for a specific motivation or filter their motivations.</li>
   <li>The user can chat with other users.</li>
 </ul>
 
