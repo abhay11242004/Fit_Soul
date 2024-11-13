@@ -32,3 +32,34 @@ Visuals: https://excalidraw.com/#json=X-fvRy1H3gSLKtFBzKiz9,PARUd85bSoYob7YUbVxs
 <br>
 Logo:
 ![image](https://github.com/user-attachments/assets/40b2fa0d-f914-4509-986b-aeff4da3d19c)
+
+## Milestone 3
+
+### Task list (a)
+<ul>
+  <li>
+    Create UI for different screens (72 hrs)
+    <ul>
+      <li>Heart rate screen</li>
+      <li>AI wellness screen</li>
+      <li>Weight screen</li>
+      <li>Home screen</li>
+    </ul>
+  </li>
+  <li>Implementation and integration of database (10 hrs)</li>
+  <li>Back-end (integration of front-end and database) (10 hrs)</li>
+  <liIntegration of AI chatbox (5 hrs)></li>
+</ul>
+    
+### Issues (b)
+<ul>
+  <li>Database integration</li>
+  <li>Chatbox integration</li>
+  <li>Learning to implement backend using firebox</li>
+</ul>
+
+### Proof of Concept (c)
+<ul>
+  <li>Creating mini code to show app development</li>
+</ul>
+
