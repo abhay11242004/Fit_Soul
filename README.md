@@ -6,9 +6,9 @@
 ### Team Composition
 <ul>
   <li>Abhay: Navigation, ViewModel, States Management</li>
-  <li>Muhammad: Front End , Themes and Design, Composables</li>
+  <li>Muhammad: Front-End , Themes and Design, Composables</li>
   <li>Sebastian: API calling and AI implementation</li>
-  <li>Palak:  BackEnd and Databases</li>
+  <li>Palak:  Back-End and Databases</li>
 </ul>
 
 ### Scope
