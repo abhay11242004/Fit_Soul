@@ -1,6 +1,7 @@
-class ProfileData{
+package com.example.fit_soul.data
 
-    string name = ""
-    int HeartRate = 76
-    int counter = 0
+class ProfileData{
+    var name: String = ""
+    var heartRate: Int = 76
+    var counter: Int = 0
 }
