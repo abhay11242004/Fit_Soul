@@ -63,3 +63,14 @@ Logo:
   <li>Creating mini code to show app development</li>
 </ul>
 
+### SMART GOAL
+<p>The goals for our project are SMART  as</p>
+<ul>
+  <li>Specific - The goals are specific as they refer to the particular tasks to be done for the app project.</li>
+  <li>Measurable - The goals are measurable as we can evaluate the code pushed by each member of the team by running the app.</li>
+  <li>Achieveable - The goals are achieveable as they are realistic and can be completed by our team using our knowledge and capabilities.</li>
+  <li>Relevant - The goals are relevant as they are building blocks for the application we are trying to build as a whole.</li>
+  <li>Time bound - The goals are time bound as we have an estimate of the time it would take to finish these tasks.</li>
+</ul>
+
+<br>
