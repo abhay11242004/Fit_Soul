@@ -49,6 +49,63 @@ Logo:
   <li>Implementation and integration of database (10 hrs)</li>
   <li>Back-end (integration of front-end and database) (10 hrs)</li>
   <liIntegration of AI chatbox (5 hrs)></li>
+
+<ul>
+  <li>Create UI for Different Screens (16 hrs)</li>
+  <ul>
+    <li>Heart Rate Screen (4 hrs)</li>
+    <li>Basic layout and components (2 hrs)</li>
+    <li>Test responsiveness (2 hrs)</li>
+    <li>AI Wellness Screen (4 hrs)</li>
+    <li>Create simple chat interface (2 hrs)</li>
+    <li>Test and refine (2 hrs)</li>
+    <li>Weight Screen (3 hrs)</li>
+    <li>Simple form and chart (2 hrs)</li>
+    <li>Quick validation (1 hr)</li>
+    <li>Home Screen (5 hrs)</li>
+    <li>Basic navigation and layout (3 hrs)</li>
+    <li>Add styling (2 hrs)</li>
+  </ul>
+  <li>Implementation and Integration of Database (4 hrs)</li>
+  <ul>
+    <li>Create a simple database schema (1 hr)</li>
+    <li>Develop basic CRUD APIs (2 hrs)</li>
+    <li>Quick integration testing (1 hr)</li>
+  </ul>
+  <li>Back-End (Integration of Front-End and Database) (4 hrs)</li>
+  <ul>
+    <li>Connect API endpoints with UI elements (3 hrs)</li>
+    <li>Debug and refine (1 hr)</li>
+  </ul>
+  <li>Integration of AI Chatbox (2 hrs)</li>
+  <ul>
+    <li>Add basic chatbox widget and connect API (1 hr)</li>
+    <li>Quick testing and adjustments (1 hr)</li>
+  </ul>
+</ul>
+
+<ul>
+  <br>
+<li>Suggested Timeline</li>
+  <br>
+  <ul>
+<li>Week 1:</li>
+  <br>
+Day 1-2: Build Home Screen and Heart Rate Screen (9 hrs)
+  <br>
+Day 3: Create Weight Screen (3 hrs)
+  <br>
+Day 4: Develop AI Wellness Screen (4 hrs)
+  <br>
+  <br>
+<li>Week 2:</li>
+  <br>
+Day 5: Set up and test database (4 hrs)
+  <br>
+Day 6: Integrate back-end with front-end (4 hrs)
+  <br>
+Day 7: Add AI chatbox and final testing (3 hrs)
+</ul>
 </ul>
     
 ### Issues (b)
@@ -63,3 +120,14 @@ Logo:
   <li>Creating mini code to show app development</li>
 </ul>
 
+### SMART GOAL
+<p>The goals for our project are SMART  as</p>
+<ul>
+  <li>Specific - The goals are specific as they refer to the particular tasks to be done for the app project.</li>
+  <li>Measurable - The goals are measurable as we can evaluate the code pushed by each member of the team by running the app.</li>
+  <li>Achieveable - The goals are achieveable as they are realistic and can be completed by our team using our knowledge and capabilities.</li>
+  <li>Relevant - The goals are relevant as they are building blocks for the application we are trying to build as a whole.</li>
+  <li>Time bound - The goals are time bound as we have an estimate of the time it would take to finish these tasks.</li>
+</ul>
+
+<br>
