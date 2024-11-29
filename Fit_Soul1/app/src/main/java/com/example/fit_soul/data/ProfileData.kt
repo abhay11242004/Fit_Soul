@@ -9,21 +9,36 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class ProfileData : ViewModel() {
+class ProfileData : ViewModel(private val profileDataStore: ProfileDataStore) {
     private val _currentHeartRate = MutableStateFlow<Int?>(null)
     val currentHeartRate: StateFlow<Int?> get() = _currentHeartRate
 
-    private val _heartRateHistory = MutableStateFlow<List<Pair<Int, String>>>(emptyList())
-    val heartRateHistory: StateFlow<List<Pair<Int, String>>> get() = _heartRateHistory
 
+//    private val _heartRateHistory = MutableStateFlow<List<Pair<Int, String>>>(emptyList())
+//    val heartRateHistory: StateFlow<List<Pair<Int, String>>> get() = _heartRateHistory
 
+    init {
+        viewModelScope.launch {
+            profileDataStore.heartRate.collectLatest { heartRate ->
+                heartRate.value = heartRate
+            }
+        }
+    }
     fun measureHeartRate() {
         val randomRate = (60..120).random()
         val timestamp = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
+    }
 
+//    {
+//        viewModelScope.launch {
+//            _currentHeartRate.value = randomRate
+//            _heartRateHistory.value = _heartRateHistory.value + (randomRate to timestamp)
+//        }
+//    }
+    fun SaveHeartRate(hRate: Int) {
+    currentHeartRate.value = hRate
         viewModelScope.launch {
-            _currentHeartRate.value = randomRate
-            _heartRateHistory.value = _heartRateHistory.value + (randomRate to timestamp)
+            profileDataStore.saveHeartRate(currentHeartRate.value)
         }
     }
 
