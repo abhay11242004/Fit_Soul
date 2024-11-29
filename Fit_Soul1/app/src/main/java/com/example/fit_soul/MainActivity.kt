@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             val homeTab = TabBarItem(title = "Home", selectedIcon = Icons.Filled.Home, unselectedIcon = Icons.Outlined.Home)
-            val alertsTab = TabBarItem(title = "Chatbox", selectedIcon = Icons.Filled.Search, unselectedIcon = Icons.Outlined.Search)
+            val alertsTab = TabBarItem(title = "Chatbot", selectedIcon = Icons.Filled.Search, unselectedIcon = Icons.Outlined.Search)
             val settingsTab = TabBarItem(title = "HeartRate", selectedIcon = Icons.Filled.Favorite, unselectedIcon = Icons.Outlined.FavoriteBorder)
             val moreTab = TabBarItem(title = "Weight", selectedIcon = Icons.Filled.Star, unselectedIcon = Icons.Outlined.Star)
             val navController = rememberNavController()

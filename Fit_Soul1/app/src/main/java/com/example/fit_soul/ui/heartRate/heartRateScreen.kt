@@ -8,14 +8,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.fit_soul.data.ProfileData
 import java.text.SimpleDateFormat
 import java.util.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HeartRateScreen() {
-    var currentHeartRate by remember { mutableStateOf<Int?>(null) }
-    val heartRateHistory = remember { mutableStateListOf<Pair<Int, String>>() }
+fun HeartRateScreen(viewModel: ProfileData) {
+    val currentHeartRate by viewModel.currentHeartRate.collectAsState()
+    val heartRateHistory by viewModel.heartRateHistory.collectAsState()
 
     Scaffold(
         topBar = {
@@ -44,10 +45,7 @@ fun HeartRateScreen() {
                         )
                     }
                     Button(onClick = {
-                        val randomRate = (60..120).random()
-                        val currentTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
-                        currentHeartRate = randomRate
-                        heartRateHistory.add(randomRate to currentTime)
+                        viewModel.measureHeartRate()
                     }) {
                         Text("Measure Heart Rate")
                     }
