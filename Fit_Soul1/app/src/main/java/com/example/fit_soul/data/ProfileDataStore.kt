@@ -8,22 +8,21 @@ import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-val Context.dataStore by ProfileDataStore(name = "profile_datastore")
 
+private val Context.dataStore by preferencesDataStore(name = "profile_datastore")
 class ProfileDataStore(private val context: Context) {
-
     companion object {
         private val HEART_RATE_KEY = intPreferencesKey("heart_rate")
     }
 
     val heartRate: Flow<Int> = context.dataStore.data
-        .map { preferences ->
-            preferences[HEART_RATE_KEY] ?: 0
+        .map {
+            it[HEART_RATE_KEY] ?: 0
         }
 
     suspend fun saveHeartRate(heartRate: Int) {
-        context.dataStore.edit { preferences ->
-            preferences[HEART_RATE_KEY] = heartRate
+        context.dataStore.edit {
+            it[HEART_RATE_KEY] = heartRate
         }
     }
 }

@@ -2,14 +2,16 @@ package com.example.fit_soul.data
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.quizapp.ProfileDataStore
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class ProfileData : ViewModel(private val profileDataStore: ProfileDataStore) {
+class ProfileData(private val profileDataStore: ProfileDataStore) : ViewModel() {
     private val _currentHeartRate = MutableStateFlow<Int?>(null)
     val currentHeartRate: StateFlow<Int?> get() = _currentHeartRate
 
@@ -36,9 +38,9 @@ class ProfileData : ViewModel(private val profileDataStore: ProfileDataStore) {
 //        }
 //    }
     fun SaveHeartRate(hRate: Int) {
-    currentHeartRate.value = hRate
+    _currentHeartRate.value = hRate
         viewModelScope.launch {
-            profileDataStore.saveHeartRate(currentHeartRate.value)
+            profileDataStore.saveHeartRate(_currentHeartRate.value)
         }
     }
 
