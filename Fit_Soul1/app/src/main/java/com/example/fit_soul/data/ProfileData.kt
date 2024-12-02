@@ -33,12 +33,13 @@ class ProfileData() : ViewModel() {
     private var _currentIndex by mutableStateOf(0)
     val currentIndex: Int get() = _currentIndex
 
-    var currentWeight by mutableStateOf("")
+    private var _currentWeight by mutableStateOf("")
+    val currentWeight: String get() = _currentWeight
     val startWeight: String get() = "70"
     val targetWeight: String get() = "65"
 
     fun onCurrentWeightChange(newWeight: String) {
-        currentWeight = newWeight
+        _currentWeight = newWeight
     }
     fun nextItem() {
         _currentIndex = (_currentIndex + 1) % images.size
