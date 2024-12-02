@@ -14,9 +14,9 @@ import com.example.fit_soul.ui.weightTracker.WeightTrackingScreen
 fun NavigationHost(navController: NavHostController){
     var viewModel = ProfileData()
     NavHost(navController = navController, startDestination = "Home") {
-        composable("Home") { HomeScreen() }
+        composable("Home") { HomeScreen(viewModel) }
         composable("ChatBot") { ChatScreen() }
         composable("HeartRate") { HeartRateScreen(viewModel) }
-        composable("Weight") {  }
+        composable("Weight") { WeightTrackingScreen(viewModel) }
     }
 }

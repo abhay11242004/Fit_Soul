@@ -50,21 +50,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 import com.example.fit_soul.R
-
+import com.example.fit_soul.data.ProfileData
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen() {
-    val images = listOf(
-        R.drawable.download,
-        R.drawable.download1,
-    )
-    val texts = listOf(
-        "I train, eat, sleep, and repeat.",
-        "Power is not in muscles it comes from God",
-    )
-    var currentIndex by remember { mutableStateOf(0) }
+fun HomeScreen(viewModel: ProfileData) {
+    val currentImage = viewModel.images[viewModel.currentIndex]
+    val currentText = viewModel.texts[viewModel.currentIndex]
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("Motivational Quotes") })
@@ -78,7 +71,7 @@ fun HomeScreen() {
             verticalArrangement = Arrangement.Center
         ) {
             Image(
-                painter = painterResource(id = images[currentIndex]),
+                painter = painterResource(id = currentImage),
                 contentDescription = "Home Screen Image",
                 modifier = Modifier
                     .size(200.dp)
@@ -86,11 +79,11 @@ fun HomeScreen() {
                 contentScale = ContentScale.Crop
             )
             Text(
-                text = texts[currentIndex],
+                text = currentText,
                 modifier = Modifier.padding(16.dp)
             )
             Button(onClick = {
-                currentIndex = (currentIndex + 1) % images.size
+                viewModel.nextItem()
             }) {
                 Text("More")
             }

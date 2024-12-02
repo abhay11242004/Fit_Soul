@@ -23,18 +23,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
-
-
+import com.example.fit_soul.data.ProfileData
 
 
 @Composable
-fun WeightTrackingScreen(
-    currentWeight: String,
-    onCurrentWeightChange: (String) -> Unit,
-    startWeight: String,
-    targetWeight: String
-) {
+fun WeightTrackingScreen(viewModel: ProfileData) {
+    val currentWeight = viewModel.currentWeight
+    val startWeight = viewModel.startWeight
+    val targetWeight = viewModel.targetWeight
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -57,9 +53,10 @@ fun WeightTrackingScreen(
 
         TextField(
             value = currentWeight,
-            onValueChange = onCurrentWeightChange,
+            onValueChange = { newWeight -> viewModel.onCurrentWeightChange(newWeight) },
             label = { Text("Enter Current Weight") },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+
         )
     }
 }
