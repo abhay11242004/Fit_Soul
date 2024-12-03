@@ -11,14 +11,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.fit_soul.data.ChatViewModel
-import retrofit2.*
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Query
+
 
 @Composable
 fun ChatScreen(modifier: Modifier = Modifier, viewModel: ChatViewModel) {
@@ -26,12 +22,23 @@ fun ChatScreen(modifier: Modifier = Modifier, viewModel: ChatViewModel) {
         modifier = modifier
     ){
         AppHeader()
+        MessageList(messageList = viewModel.messageList)
         MessageInput(onMessageSend = {
             viewModel.sendMessage(it)
         })
     }
 
 }
+@Composable
+fun MessageList(modifier: Modifier = Modifier, messageList: List<MessageModel>){
+    LazyColumn {
+        items(messageList){
+            Text(text = it.message)
+        }
+
+    }
+}
+
 @Composable
 fun AppHeader(){
     Box(
