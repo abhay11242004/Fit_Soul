@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.fit_soul.ui.chatBox.MessageModel
 import com.google.ai.client.generativeai.GenerativeModel
+import com.google.ai.client.generativeai.type.content
 import kotlinx.coroutines.launch
 
 class ChatViewModel(): ViewModel() {
@@ -19,15 +20,22 @@ class ChatViewModel(): ViewModel() {
     fun sendMessage(question : String){
         viewModelScope.launch {
             try {
-                val chat = generativeModel.startChat()
+                val chat = generativeModel.startChat(
+                    history = messageList.map{
+                        content(it.role){ text(it.message)}
+                    }.toList()
+                )
 
                 messageList.add(MessageModel(question, "user"))
+                messageList.add(MessageModel("Typing...", "model"))
 
                 val response = chat.sendMessage(question)
+                messageList.removeLast()
                 messageList.add(MessageModel(response.text.toString(), "model"))
 
             } catch (e: Exception) {
-                Log.e("ChatViewModel", "Error sending message: ${e.localizedMessage}", e)
+                messageList.removeLast()
+                messageList.add(MessageModel("Error: "+ e.message.toString(), "model" ))
             }
         }
     }
