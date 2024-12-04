@@ -13,13 +13,13 @@ import com.example.fit_soul.ui.home.HomeScreen
 import com.example.fit_soul.ui.weightTracker.WeightTrackingScreen
 
 @Composable
-fun NavigationHost(navController: NavHostController, modifier: Modifier){
-    var viewModel = ProfileData()
+fun NavigationHost(navController: NavHostController, modifier: Modifier, viewModel: ProfileData){
+
     var chatViewModel = ChatViewModel()
     NavHost(navController = navController, startDestination = "Home") {
-        composable("Home") { HomeScreen(viewModel) }
+        composable("Home") { HomeScreen() }
         composable("ChatBot") { ChatScreen(viewModel = chatViewModel, modifier = modifier) }
         composable("HeartRate") { HeartRateScreen(viewModel) }
-        composable("Weight") { WeightTrackingScreen(viewModel) }
+        composable("Weight") {  }
     }
 }

@@ -55,9 +55,16 @@ import com.example.fit_soul.data.ProfileData
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(viewModel: ProfileData) {
-    val currentImage = viewModel.images[viewModel.currentIndex]
-    val currentText = viewModel.texts[viewModel.currentIndex]
+fun HomeScreen() {
+    val images = listOf(
+        R.drawable.download,
+        R.drawable.download1,
+    )
+    val texts = listOf(
+        "I train, eat, sleep, and repeat.",
+        "Power is not in muscles it comes from God",
+    )
+    var currentIndex by remember { mutableStateOf(0) }
     Scaffold(
         topBar = {
             TopAppBar(title = { Text("Motivational Quotes") })
@@ -71,7 +78,7 @@ fun HomeScreen(viewModel: ProfileData) {
             verticalArrangement = Arrangement.Center
         ) {
             Image(
-                painter = painterResource(id = currentImage),
+                painter = painterResource(id = images[currentIndex]),
                 contentDescription = "Home Screen Image",
                 modifier = Modifier
                     .size(200.dp)
@@ -79,11 +86,11 @@ fun HomeScreen(viewModel: ProfileData) {
                 contentScale = ContentScale.Crop
             )
             Text(
-                text = currentText,
+                text = texts[currentIndex],
                 modifier = Modifier.padding(16.dp)
             )
             Button(onClick = {
-                viewModel.nextItem()
+                currentIndex = (currentIndex + 1) % images.size
             }) {
                 Text("More")
             }

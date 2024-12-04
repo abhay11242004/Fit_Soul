@@ -41,6 +41,8 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import com.example.fit_soul.data.ProfileData
+import com.example.fit_soul.data.ProfileDataStore
 
 data class TabBarItem(
     val title: String,
@@ -54,7 +56,11 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        val dataStoreManager = ProfileDataStore(applicationContext)
         setContent {
+            val viewModel: ProfileData = ProfileData(
+                dataStoreManager
+            )
             val homeTab = TabBarItem(title = "Home", selectedIcon = Icons.Filled.Home, unselectedIcon = Icons.Outlined.Home)
             val alertsTab = TabBarItem(title = "Chatbot", selectedIcon = Icons.Filled.Search, unselectedIcon = Icons.Outlined.Search)
             val settingsTab = TabBarItem(title = "HeartRate", selectedIcon = Icons.Filled.Favorite, unselectedIcon = Icons.Outlined.FavoriteBorder)
@@ -71,7 +77,7 @@ class MainActivity : ComponentActivity() {
                     Scaffold(bottomBar = { TabView(tabBarItems, navController) }
                     ) { innerPadding ->
 
-                        NavigationHost(modifier = Modifier.padding(innerPadding), navController = navController)
+                        NavigationHost(modifier = Modifier.padding(innerPadding), navController = navController, viewModel = viewModel)
                     }
 
                 }
