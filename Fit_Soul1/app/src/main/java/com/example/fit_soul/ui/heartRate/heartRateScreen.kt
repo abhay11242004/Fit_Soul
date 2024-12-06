@@ -67,7 +67,7 @@ fun HeartRateScreen(viewModel: ProfileData) {
                 } else {
                     LazyColumn {
                         items(heartRateHistory.size) { index ->
-                            val (rate) = heartRateHistory[index]
+                            val rate = heartRateHistory[index]
                             HeartRateHistoryItem(rate = rate)
                         }
                     }
