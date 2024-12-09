@@ -23,18 +23,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
-
+import com.example.fit_soul.data.ProfileData
 
 
 
 @Composable
-fun WeightTrackingScreen(
-    currentWeight: String,
-    onCurrentWeightChange: (String) -> Unit,
-    startWeight: String,
-    targetWeight: String
-) {
+fun WeightTrackingScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -42,24 +36,19 @@ fun WeightTrackingScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        Text(text = "Start Weight: $startWeight kg", style = MaterialTheme.typography.bodyLarge)
+//        Text(text = "Start Weight: [placeholder] kg", style = MaterialTheme.typography.bodyLarge)
+//
+//        Spacer(modifier = Modifier.height(16.dp))
+//
+//
+//        Text(text = "Target Weight: [placeHolder] kg", style = MaterialTheme.typography.bodyLarge)
+//
+//        Spacer(modifier = Modifier.height(32.dp))
+//
+//        Text(text = "Current Weight:", style = MaterialTheme.typography.bodyLarge)
+//
+//        Spacer(modifier = Modifier.height(8.dp))
 
-        Spacer(modifier = Modifier.height(16.dp))
 
-
-        Text(text = "Target Weight: $targetWeight kg", style = MaterialTheme.typography.bodyLarge)
-
-        Spacer(modifier = Modifier.height(32.dp))
-
-        Text(text = "Current Weight:", style = MaterialTheme.typography.bodyLarge)
-
-        Spacer(modifier = Modifier.height(8.dp))
-
-        TextField(
-            value = currentWeight,
-            onValueChange = onCurrentWeightChange,
-            label = { Text("Enter Current Weight") },
-            modifier = Modifier.fillMaxWidth()
-        )
     }
 }

@@ -50,7 +50,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 import com.example.fit_soul.R
-
+import com.example.fit_soul.data.ProfileData
 
 
 @OptIn(ExperimentalMaterial3Api::class)

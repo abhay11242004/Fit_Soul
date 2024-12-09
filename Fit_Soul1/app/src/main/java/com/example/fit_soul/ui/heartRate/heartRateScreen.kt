@@ -8,6 +8,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.core.graphics.component1
 import com.example.fit_soul.data.ProfileData
 import java.text.SimpleDateFormat
 import java.util.*
@@ -15,8 +16,8 @@ import java.util.*
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HeartRateScreen(viewModel: ProfileData) {
-    val currentHeartRate by viewModel.currentHeartRate.collectAsState()
-    val heartRateHistory by viewModel.heartRateHistory.collectAsState()
+    val currentHeartRate by viewModel.currentHeartRate
+    val heartRateHistory by viewModel.heartRateHistory
 
     Scaffold(
         topBar = {
@@ -66,8 +67,8 @@ fun HeartRateScreen(viewModel: ProfileData) {
                 } else {
                     LazyColumn {
                         items(heartRateHistory.size) { index ->
-                            val (rate, timestamp) = heartRateHistory[index]
-                            HeartRateHistoryItem(rate = rate, timestamp = timestamp)
+                            val rate = heartRateHistory[index]
+                            HeartRateHistoryItem(rate = rate)
                         }
                     }
                 }
@@ -77,7 +78,7 @@ fun HeartRateScreen(viewModel: ProfileData) {
 }
 
 @Composable
-fun HeartRateHistoryItem(rate: Int, timestamp: String) {
+fun HeartRateHistoryItem(rate: Int) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -85,7 +86,7 @@ fun HeartRateHistoryItem(rate: Int, timestamp: String) {
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         Text(text = "$rate BPM")
-        Text(text = timestamp)
+        //Text(text = timestamp)
     }
 }
 

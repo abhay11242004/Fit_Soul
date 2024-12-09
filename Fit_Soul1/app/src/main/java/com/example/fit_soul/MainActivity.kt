@@ -6,12 +6,15 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Face
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Search
@@ -40,6 +43,8 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import com.example.fit_soul.data.ProfileData
+import com.example.fit_soul.data.ProfileDataStore
 
 data class TabBarItem(
     val title: String,
@@ -53,23 +58,28 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        val dataStoreManager = ProfileDataStore(applicationContext)
         setContent {
+            val viewModel: ProfileData = ProfileData(
+                dataStoreManager
+            )
             val homeTab = TabBarItem(title = "Home", selectedIcon = Icons.Filled.Home, unselectedIcon = Icons.Outlined.Home)
-            val alertsTab = TabBarItem(title = "Chatbot", selectedIcon = Icons.Filled.Search, unselectedIcon = Icons.Outlined.Search)
-            val settingsTab = TabBarItem(title = "HeartRate", selectedIcon = Icons.Filled.Favorite, unselectedIcon = Icons.Outlined.FavoriteBorder)
-            val moreTab = TabBarItem(title = "Weight", selectedIcon = Icons.Filled.Star, unselectedIcon = Icons.Outlined.Star)
+            val AiTab = TabBarItem(title = "Chatbot", selectedIcon = Icons.Filled.Search, unselectedIcon = Icons.Outlined.Search)
+            val heartTab = TabBarItem(title = "HeartRate", selectedIcon = Icons.Filled.Favorite, unselectedIcon = Icons.Outlined.FavoriteBorder)
+            val weightTab = TabBarItem(title = "Weight", selectedIcon = Icons.Filled.Face, unselectedIcon = Icons.Outlined.Face)
             val navController = rememberNavController()
             // creating a list of all the tabs
-            val tabBarItems = listOf(homeTab, alertsTab, settingsTab, moreTab)
+            val tabBarItems = listOf(homeTab, AiTab, heartTab, weightTab)
             Fit_SoulTheme {
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Scaffold(bottomBar = { TabView(tabBarItems, navController) }) {
+                    Scaffold(bottomBar = { TabView(tabBarItems, navController) }
+                    ) { innerPadding ->
 
-                        NavigationHost(navController)
+                        NavigationHost(modifier = Modifier.padding(innerPadding), navController = navController, viewModel = viewModel)
                     }
 
                 }
