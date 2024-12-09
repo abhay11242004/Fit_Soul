@@ -23,6 +23,13 @@ class ProfileData(private val profileDataStore: ProfileDataStore) : ViewModel() 
     private var _heartRateHistory = mutableStateOf<List<Int>>(emptyList())
     val heartRateHistory: MutableState<List<Int>> get() = _heartRateHistory
 
+
+    private var _currentWeight = mutableStateOf(0)
+    val currentWeight: MutableState<Int> get() = _currentWeight
+
+    private var _weightHistory = mutableStateOf<List<Int>>(emptyList())
+    val weightHistory: MutableState<List<Int>> get() = _weightHistory
+
     init {
         viewModelScope.launch {
             profileDataStore.heartRateList.collectLatest { list ->
@@ -31,6 +38,9 @@ class ProfileData(private val profileDataStore: ProfileDataStore) : ViewModel() 
 //            if (list.isNotEmpty()) {
 //                _currentHeartRate.value = list.last() // Set the most recent heart rate
 //            }
+            profileDataStore.weightList.collectLatest { list ->
+                _weightHistory.value = list
+            }
         }
     }
 
@@ -46,6 +56,12 @@ class ProfileData(private val profileDataStore: ProfileDataStore) : ViewModel() 
         viewModelScope.launch {
             profileDataStore.saveHeartRate(randomRate)
             _currentHeartRate.value = randomRate
+        }
+    }
+    fun addWeight(weight: Int) {
+        viewModelScope.launch {
+            profileDataStore.saveWeight(weight)
+            _currentWeight.value = weight
         }
     }
 }

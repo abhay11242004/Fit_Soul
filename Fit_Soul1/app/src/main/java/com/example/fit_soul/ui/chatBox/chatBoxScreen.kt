@@ -13,12 +13,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.fit_soul.R
 import com.example.fit_soul.data.ChatViewModel
 import com.example.fit_soul.ui.theme.ColoModelMessage
 import com.example.fit_soul.ui.theme.ColorUserMessage
+import com.example.fit_soul.ui.theme.Purple80
 
 
 @Composable
@@ -48,15 +51,31 @@ fun ChatScreen(modifier: Modifier = Modifier, viewModel: ChatViewModel) {
 }
 @Composable
 fun MessageList(modifier: Modifier = Modifier, messageList: List<MessageModel>){
-    LazyColumn(
-        modifier = modifier,
-        reverseLayout = true
-    ) {
-        items(messageList.reversed()){
-            MessageRow(messageModel = it)
+    if(messageList.isEmpty()){
+        Column(modifier = modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center) {
+            Icon(
+                modifier = Modifier.size(60.dp),
+                painter = painterResource(id = R.drawable.baseline_question_answer_24),
+                contentDescription = "Icon",
+                tint = Purple80
+            )
+            Text(text = "Ask me anything", fontSize = 22.sp)
         }
 
+    }else{
+        LazyColumn(
+            modifier = modifier,
+            reverseLayout = true
+        ) {
+            items(messageList.reversed()){
+                MessageRow(messageModel = it)
+            }
+
+        }
     }
+
 }
 @Composable
 fun MessageRow(messageModel: MessageModel){
@@ -70,15 +89,15 @@ fun MessageRow(messageModel: MessageModel){
         ){
             Box(
                 modifier = Modifier.align(if(isModel) Alignment.BottomStart else Alignment.BottomEnd)
-                .padding(
-                    start = if(isModel) 8.dp else 70.dp,
-                    end = if(isModel) 70.dp else 8.dp,
-                    top = 8.dp,
-                    bottom = 8.dp
-                )
-                .clip(RoundedCornerShape(48f))
-                .background(if(isModel) ColoModelMessage else ColorUserMessage)
-                .padding(16.dp)
+                    .padding(
+                        start = if(isModel) 8.dp else 70.dp,
+                        end = if(isModel) 70.dp else 8.dp,
+                        top = 8.dp,
+                        bottom = 8.dp
+                    )
+                    .clip(RoundedCornerShape(48f))
+                    .background(if(isModel) ColoModelMessage else ColorUserMessage)
+                    .padding(16.dp)
 
             ){
                 Text(

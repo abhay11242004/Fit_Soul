@@ -22,7 +22,7 @@ class ChatViewModel(): ViewModel() {
             try {
                 val chat = generativeModel.startChat(
                     history = messageList.map{
-                        content(it.role){ text(it.message)}
+                        content(it.role){ text(it.message+ "give all responses as a fitness assistant")}
                     }.toList()
                 )
 

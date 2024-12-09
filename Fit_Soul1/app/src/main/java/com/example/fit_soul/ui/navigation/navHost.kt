@@ -10,7 +10,8 @@ import com.example.fit_soul.data.ProfileData
 import com.example.fit_soul.ui.chatBox.ChatScreen
 import com.example.fit_soul.ui.heartRate.HeartRateScreen
 import com.example.fit_soul.ui.home.HomeScreen
-import com.example.fit_soul.ui.weightTracker.WeightTrackingScreen
+import com.example.fit_soul.ui.weightTracker.WeightTrackerScreen
+
 
 @Composable
 fun NavigationHost(navController: NavHostController, modifier: Modifier, viewModel: ProfileData){
@@ -20,6 +21,6 @@ fun NavigationHost(navController: NavHostController, modifier: Modifier, viewMod
         composable("Home") { HomeScreen() }
         composable("ChatBot") { ChatScreen(viewModel = chatViewModel, modifier = modifier) }
         composable("HeartRate") { HeartRateScreen(viewModel) }
-        composable("Weight") {  }
+        composable("Weight") { WeightTrackerScreen(viewModel) }
     }
 }

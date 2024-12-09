@@ -19,6 +19,8 @@ class ProfileDataStore(private val context: Context) {
     companion object {
         private val HEART_RATE_KEY = intPreferencesKey("heart_rate")
         private val HEART_RATE_HISTORY_KEY = stringPreferencesKey("heart_rate_history")
+        private val WEIGHT_KEY  = intPreferencesKey("weight")
+        private val WEIGHT_HISTORY_KEY = stringPreferencesKey("weight_history")
     }
 
     suspend fun saveHeartRate(heartRate: Int) {
@@ -29,9 +31,25 @@ class ProfileDataStore(private val context: Context) {
             preferences[HEART_RATE_HISTORY_KEY] = updatedList.joinToString(",")
         }
     }
+    suspend fun saveWeight(weight: Int) {
+        context.dataStore.edit { preferences ->
+            preferences[WEIGHT_KEY] = weight
+            val currentList = preferences[WEIGHT_HISTORY_KEY]?.split(",")?.map { it.toInt() } ?: emptyList()
+            val updatedList = currentList + weight
+            preferences[WEIGHT_HISTORY_KEY] = updatedList.joinToString(",")
+        }
+    }
 
     val heartRateList: Flow<List<Int>> = context.dataStore.data.map { preferences ->
         val storedList = preferences[HEART_RATE_HISTORY_KEY] ?: ""
+        if (storedList.isNotEmpty()) {
+            storedList.split(",").map { it.toInt() }
+        } else {
+            emptyList()
+        }
+    }
+    val weightList: Flow<List<Int>> = context.dataStore.data.map { preferences ->
+        val storedList = preferences[WEIGHT_HISTORY_KEY] ?: ""
         if (storedList.isNotEmpty()) {
             storedList.split(",").map { it.toInt() }
         } else {
