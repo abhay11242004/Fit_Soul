@@ -8,11 +8,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Face
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Search
@@ -62,12 +64,12 @@ class MainActivity : ComponentActivity() {
                 dataStoreManager
             )
             val homeTab = TabBarItem(title = "Home", selectedIcon = Icons.Filled.Home, unselectedIcon = Icons.Outlined.Home)
-            val alertsTab = TabBarItem(title = "Chatbot", selectedIcon = Icons.Filled.Search, unselectedIcon = Icons.Outlined.Search)
-            val settingsTab = TabBarItem(title = "HeartRate", selectedIcon = Icons.Filled.Favorite, unselectedIcon = Icons.Outlined.FavoriteBorder)
-            val moreTab = TabBarItem(title = "Weight", selectedIcon = Icons.Filled.Star, unselectedIcon = Icons.Outlined.Star)
+            val AiTab = TabBarItem(title = "Chatbot", selectedIcon = Icons.Filled.Search, unselectedIcon = Icons.Outlined.Search)
+            val heartTab = TabBarItem(title = "HeartRate", selectedIcon = Icons.Filled.Favorite, unselectedIcon = Icons.Outlined.FavoriteBorder)
+            val weightTab = TabBarItem(title = "Weight", selectedIcon = Icons.Filled.Face, unselectedIcon = Icons.Outlined.Face)
             val navController = rememberNavController()
             // creating a list of all the tabs
-            val tabBarItems = listOf(homeTab, alertsTab, settingsTab, moreTab)
+            val tabBarItems = listOf(homeTab, AiTab, heartTab, weightTab)
             Fit_SoulTheme {
 
                 Surface(
